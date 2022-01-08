@@ -1,7 +1,7 @@
 import random
 import string
 import pyperclip
-n = int(input('How many lines to generate? (DEFAULT=10): ') or "10")
+n = int(input('How many lines to generate? (DEFAULT=10)') or "10")
 TABLE_NAME = input('Table name: ')
 data = input('Input data: ')
 output = ''
@@ -22,7 +22,7 @@ for i in range(n):
         elif(item[1] == 'float'):
             values.append(str(round(random.random() * random.randint(1,99), 2)))
         elif(item[1] == 'varchar'):
-            values.append(''.join(random.choices(string.ascii_lowercase, k=random.randint(5,10))))
+            values.append(f"'{''.join(random.choices(string.ascii_lowercase, k=random.randint(5,10)))}'")
     values = ", ".join(values)
     query += values + ');'
     print(query)
